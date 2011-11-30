@@ -28,6 +28,7 @@ BuildRequires:	libx11-devel
 BuildRequires:	libxrandr-devel
 BuildRequires:	openal-devel
 BuildRequires:	sndfile-devel
+BuildRequires:	jpeg-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
