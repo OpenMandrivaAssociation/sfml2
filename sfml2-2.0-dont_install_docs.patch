@@ -1,0 +1,27 @@
+diff -rupN sfml2-2.0/CMakeLists.txt sfml2-2.0_mod/CMakeLists.txt
+--- sfml2-2.0/CMakeLists.txt	2011-09-07 18:17:05.002956947 +0200
++++ sfml2-2.0_mod/CMakeLists.txt	2011-09-07 20:43:08.684573693 +0200
+@@ -181,7 +181,6 @@ else()
+ endif()
+ 
+ install(FILES cmake/Modules/FindSFML.cmake DESTINATION ${CMAKE_ROOT}/Modules)
+-install(FILES license.txt DESTINATION ${INSTALL_MISC_DIR})
+ 
+ if(WINDOWS)
+     if(ARCH_32BITS)
+diff -rupN sfml2-2.0/doc/CMakeLists.txt sfml2-2.0_mod/doc/CMakeLists.txt
+--- sfml2-2.0/doc/CMakeLists.txt	2011-09-07 18:17:05.016956947 +0200
++++ sfml2-2.0_mod/doc/CMakeLists.txt	2011-09-07 20:42:43.292574802 +0200
+@@ -51,12 +51,3 @@ add_custom_target(doc
+                   COMMAND ${CMAKE_COMMAND} -E echo "Done."
+                   WORKING_DIRECTORY ${DOXYGEN_INPUT_DIR})
+ 
+-# setup install rules
+-install(DIRECTORY ${DOXYGEN_OUTPUT_DIR}/html
+-        DESTINATION ${INSTALL_MISC_DIR}/doc
+-        COMPONENT doc)
+-if(DOXYGEN_HHC_PROGRAM)
+-    install(FILES ${DOXYGEN_OUTPUT_DIR}/sfml.chm
+-            DESTINATION ${INSTALL_MISC_DIR}/doc
+-            COMPONENT doc)
+-endif()
