@@ -1,0 +1,11 @@
+diff -urN sfml2-2.0/src/SFML/Window/Linux/JoystickImpl.cpp sfml2-2.0-patched/src/SFML/Window/Linux/JoystickImpl.cpp
+--- sfml2-2.0/src/SFML/Window/Linux/JoystickImpl.cpp	2011-10-04 07:10:48.000000000 +1100
++++ sfml2-2.0-patched/src/SFML/Window/Linux/JoystickImpl.cpp	2012-10-12 19:20:36.494383269 +1100
+@@ -29,6 +29,7 @@
+ #include <sys/stat.h>
+ #include <errno.h>
+ #include <sstream>
++#include <unistd.h>
+ 
+ 
+ namespace sf

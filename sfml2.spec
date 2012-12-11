@@ -10,7 +10,7 @@
 
 Name:		sfml2
 Version:	2.0
-Release:	%mkrel 0.1
+Release:	0.2
 Summary:	Simple and Fast Multimedia Library
 License:	zlib/libpng License
 Group:		System/Libraries
@@ -18,18 +18,18 @@ URL:		http://sourceforge.net/projects/sfml
 # Use git snapshot
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		sfml2-2.0-dont_install_docs.patch
+Patch1:		sfml2-2.0-gcc4.7.patch
 BuildRequires:	cmake
 BuildRequires:	doxygen
-BuildRequires:	mesagl-devel
-BuildRequires:	mesaglu-devel
-BuildRequires:	glew-devel
-BuildRequires:	freetype2-devel
-BuildRequires:	libx11-devel
-BuildRequires:	libxrandr-devel
-BuildRequires:	openal-devel
-BuildRequires:	sndfile-devel
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(glew)
+BuildRequires:	pkgconfig(freetype2)
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	pkgconfig(openal)
+BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	jpeg-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 SFML is a portable and easy to use multimedia API written in C++.
@@ -121,6 +121,7 @@ Documenation for %{name}.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %cmake -DBUILD_DOC=TRUE
@@ -128,11 +129,7 @@ Documenation for %{name}.
 %make doc
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std -C build
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(0644,root,root,0755)
@@ -172,4 +169,11 @@ rm -rf %{buildroot}
 %files doc
 %defattr(0644,root,root,0755)
 %doc build/doc/html examples
+
+
+
+%changelog
+* Wed Nov 30 2011 Andrey Bondrov <abondrov@mandriva.org> 2.0-0.1mdv2011.0
++ Revision: 735570
+- imported package sfml2
 
