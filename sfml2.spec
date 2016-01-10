@@ -11,7 +11,7 @@
 Summary:	Simple and Fast Multimedia Library
 Name:		sfml2
 Version:	2.0
-Release:	3
+Release:	4
 License:	zlib/libpng License
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/sfml
