@@ -14,7 +14,7 @@ Version:	2.0
 Release:	4
 License:	zlib/libpng License
 Group:		System/Libraries
-Url:		http://sourceforge.net/projects/sfml
+Url:		https://sourceforge.net/projects/sfml
 # Use git snapshot
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		sfml2-2.0-dont_install_docs.patch
